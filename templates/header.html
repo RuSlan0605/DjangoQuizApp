@@ -1,0 +1,25 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(80, 80, 80);">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link">{{ request.user }}<span class="sr-only"></span></a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link nav-link-2" href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% endif %}
+          <a href="{% url 'login' %}">
+              <button type="button" class="btn btn-outline-secondary" style="margin-left: 1000px;">Log in</button>
+          </a>
+          <a href="{% url 'register' %}">
+              <button type="button" class="btn btn-outline-success" style="margin-left: 20px">Sign Up</button>
+          </a>
+        </ul>
+      </div>
+    </nav>
+  </header>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container" style="margin-top: 30px; padding-top: 10px;">
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% for question in questions %}
+                <div class="card">
+                    <h5 class="card-header">{{ question.id }} of 10</h5>
+                    <div class="card-body">
+                    <h5 class="card-title">{{ question.question }}</h5>
+                    <p class="card-text">
+                        <div class="form-check">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                                <label class="form-check-label">{{ question.op1 }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                                <label class="form-check-label">{{ question.op2 }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                                <label class="form-check-label">{{ question.op3 }}</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something">
+                                <label class="form-check-label">{{ question.op4 }}</label>
+                            </div>
+                        </div>    
+                    </p>
+                </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary">Результат</button>
+        </form>
+    </div>
+{% endblock %}
+
